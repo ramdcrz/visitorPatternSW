@@ -1,10 +1,8 @@
-# Visitor Pattern - Telecommunication Subscription Plans
+# visitorPattern
+**Seatwork: Telecommunication Subscription Plans**
 
-## Overview
 
 This project implements the **Visitor Design Pattern** to manage and display different features of mobile telecommunications plans. The pattern allows us to add new operations on telco subscription objects without modifying their structure.
-
-**Lab Seatwork 4** • **Due: Tuesday, 3 March 2026, 10:00 AM**
 
 ## Problem Statement
 
@@ -35,13 +33,6 @@ src/
 ### 1. **Element Interface** - `TelcoSubscription`
 Defines the `accept()` method that allows visitors to visit the telco object.
 
-```java
-public interface TelcoSubscription {
-    public String accept(UsagePromo promo, double price);
-    public String accept(UnliCallTextOffer unliPackage, boolean unliCallText);
-}
-```
-
 ### 2. **Concrete Element** - `Telco`
 Implements the `TelcoSubscription` interface. Stores telco-specific data and accepts visitors.
 
@@ -55,18 +46,8 @@ Implements the `TelcoSubscription` interface. Stores telco-specific data and acc
 Define operations that can be performed on telco objects:
 
 #### `UsagePromo`
-```java
-public interface UsagePromo {
-    public String showAllowance(String telcoName, double money);
-}
-```
-
 #### `UnliCallTextOffer`
-```java
-public interface UnliCallTextOffer {
-    public String showUnliCallsTextOffer(String telcoName, boolean unliCallText);
-}
-```
+
 
 ### 4. **Concrete Visitors**
 Implement specific operations:
@@ -82,34 +63,6 @@ Displays unlimited call/text offerings:
 - Smart: No unlimited calls and text
 - Globe: Unlimited calls and text
 - Dito: Unlimited calls and text
-
-## How the Visitor Pattern Works
-
-```
-┌─────────────────────────────────────────────┐
-│         Element (Telco Object)              │
-│  ┌──────────────────────────────────────┐   │
-│  │ accept(UsagePromo promo, ...)        │   │
-│  │ accept(UnliCallTextOffer offer, ...) │   │
-│  └──────────────────────────────────────┘   │
-└─────────────────────────────────────────────┘
-              │
-              │ visits
-              ▼
-    ┌──────────────────────┐
-    │    Visitor Objects   │
-    ├──────────────────────┤
-    │ • TelcoAllowance     │
-    │ • UnliCallsTextPkg   │
-    └──────────────────────┘
-              │
-              │ calls methods on
-              ▼
-    ┌──────────────────────┐
-    │   Return Operations  │
-    │   on Telco Objects   │
-    └──────────────────────┘
-```
 
 ## Execution Flow
 
@@ -194,12 +147,5 @@ By completing this seatwork, you will understand:
 - ✓ How to extend functionality without modifying existing classes
 - ✓ Real-world applications of design patterns
 
-## References
-
-- [Visitor Design Pattern Documentation](https://refactoring.guru/design-patterns/visitor)
-- GOF Design Patterns book - Behavioral Patterns section
-
----
-
-**Course**: Software Engineering 2 - Lab Seatwork 4  
-**Submission Deadline**: Tuesday, 3 March 2026, 10:00 AM
+## UML Diagram
+![alt text](https://github.com/ramdcrz/visitorPatternSW/blob/main/visitorPatternSW_UML.jpg)
